@@ -4,8 +4,8 @@ import { createClient } from "@/lib/supabaseServer";
 import { ConditionalLayout } from "./components/layout/ConditionalLayout";
 
 export const metadata: Metadata = {
-  title: "IEPulse – AI-Powered IEP Management",
-  description: "Internal school platform for IEP goals, compliance, and progress tracking.",
+  title: "EveryLearner – IEP Management",
+  description: "Upload IEPs, monitor compliance, and generate parent summaries.",
 };
 
 export default async function RootLayout({

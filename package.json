@@ -16,6 +16,8 @@
     "clsx": "^2.1.0",
     "lucide-react": "^0.460.0",
     "next": "14.2.18",
+    "openai": "^6.25.0",
+    "pdf-parse": "^2.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^2.13.3",
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
+    "@types/pdf-parse": "^1.1.5",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
