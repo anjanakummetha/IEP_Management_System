@@ -37,7 +37,7 @@ export default async function StudentsPage() {
         <h1 className="text-2xl font-semibold text-slate-800">Students</h1>
         <Link
           href="/students/new"
-          className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 shadow-sm transition-colors"
+          className="flex items-center gap-2 px-4 py-2.5 bg-cold-brew text-vanilla text-sm font-semibold rounded-xl hover:opacity-90 shadow-sm transition-opacity"
         >
           <UserPlus size={16} />
           Add Student

@@ -69,7 +69,7 @@ export function GoalsProgressSection({ role, goals, studentId, progressNotes }: 
           <button
             type="button"
             onClick={() => { setShowForm(!showForm); setError(""); }}
-            className="flex items-center gap-1.5 text-xs font-medium text-blue-600 hover:text-blue-700"
+            className="flex items-center gap-1.5 text-xs font-medium text-cold-brew hover:text-mocha"
           >
             <Plus className="w-3.5 h-3.5" />
             Add Progress Note
@@ -136,12 +136,12 @@ export function GoalsProgressSection({ role, goals, studentId, progressNotes }: 
               onChange={(e) => setNote(e.target.value)}
               rows={3}
               placeholder="Describe the student's progress, observations, or any concerns…"
-              className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 resize-none"
+              className="w-full rounded-lg border border-sand px-3 py-2 text-sm text-espresso-noir placeholder:text-stone-400 focus:ring-2 focus:ring-espresso-foam focus:border-espresso-foam resize-none"
             />
             <button
               type="submit"
               disabled={saving || !note.trim()}
-              className="flex items-center gap-2 rounded-lg bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+              className="flex items-center gap-2 rounded-lg bg-cold-brew text-vanilla px-4 py-2 text-sm font-medium hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
               {saving && <Loader2 size={14} className="animate-spin" />}
               {saving ? "Saving…" : "Save Note"}
@@ -154,7 +154,7 @@ export function GoalsProgressSection({ role, goals, studentId, progressNotes }: 
       {localNotes.length > 0 && (
         <div className="mt-4 pt-4 border-t border-slate-100">
           <div className="flex items-center gap-1.5 mb-3">
-            <MessageSquare size={14} className="text-slate-400" />
+            <MessageSquare size={14} className="text-mocha" />
             <p className="text-xs uppercase tracking-wide text-slate-500 font-medium">
               Progress Notes ({localNotes.length})
             </p>

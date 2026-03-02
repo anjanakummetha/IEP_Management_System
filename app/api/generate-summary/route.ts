@@ -99,12 +99,14 @@ Write a parent summary in ${LANGUAGE_NAMES[language] ?? "English"}.`;
     temperature: 0.4,
     messages: [
       { role: "system", content: systemPrompt },
-      { role: "user",   content: userPrompt },
+      { role: "user",   content: `/no_think\n\n${userPrompt}` },
     ],
   });
 
   let summary = completion.choices[0]?.message?.content ?? "";
-  summary = summary.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+  summary = summary.replace(/<think>[\s\S]*?<\/think>/gi, "");
+  summary = summary.replace(/<think>[\s\S]*/i, "");
+  summary = summary.trim();
 
   return NextResponse.json({ summary });
 }

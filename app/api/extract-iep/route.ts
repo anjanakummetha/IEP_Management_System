@@ -79,13 +79,15 @@ export async function POST(req: NextRequest) {
       temperature: 0.1,
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
-        { role: "user",   content: `Extract IEP data from this document:\n\n${truncatedText}` },
+        { role: "user",   content: `/no_think\n\nExtract IEP data from this document:\n\n${truncatedText}` },
       ],
     });
 
     let raw = completion.choices[0]?.message?.content ?? "{}";
-    // Strip <think>…</think> reasoning blocks
-    raw = raw.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+    // Strip <think>...</think> blocks, including truncated ones with no closing tag
+    raw = raw.replace(/<think>[\s\S]*?<\/think>/gi, "");
+    raw = raw.replace(/<think>[\s\S]*/i, "");
+    raw = raw.trim();
     // Strip markdown fences
     raw = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
 

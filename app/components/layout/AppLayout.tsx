@@ -1,20 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { LogOut, User } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { createClient } from "@/lib/supabaseClient";
 import type { AppUser } from "./ConditionalLayout";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/students", label: "Students" },
+  { href: "/students",  label: "Students"  },
 ];
 
 const roleLabels: Record<string, string> = {
   teacher: "Teacher",
-  admin: "Administrator",
+  admin:   "Administrator",
 };
 
 interface AppLayoutProps {
@@ -24,23 +23,21 @@ interface AppLayoutProps {
 
 export function AppLayout({ user, children }: AppLayoutProps) {
   const pathname = usePathname();
-  const router = useRouter();
 
-  async function handleLogout() {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.refresh();
-    router.push("/login");
+  function handleLogout() {
+    window.location.href = "/api/logout";
   }
 
   return (
     <div className="min-h-screen flex">
-      <aside className="w-[240px] fixed left-0 top-0 h-full bg-slate-900 text-slate-200 flex flex-col z-10">
-        <div className="p-6 border-b border-slate-700">
-          <Link href="/dashboard" className="text-xl font-semibold text-white tracking-tight">
+      {/* ── Sidebar ── */}
+      <aside className="w-[240px] fixed left-0 top-0 h-full bg-espresso-noir text-stone-200 flex flex-col z-10">
+        <div className="p-6 border-b border-white/10">
+          <Link href="/dashboard" className="text-xl font-semibold text-vanilla tracking-tight">
             EveryLearner
           </Link>
         </div>
+
         <nav className="flex-1 p-4 flex flex-col gap-1">
           {navItems.map((item) => {
             const isActive =
@@ -53,8 +50,8 @@ export function AppLayout({ user, children }: AppLayoutProps) {
                 className={cn(
                   "px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
-                    ? "bg-blue-600 text-white"
-                    : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                    ? "bg-cold-brew text-vanilla"
+                    : "text-stone-300 hover:bg-white/10 hover:text-vanilla"
                 )}
               >
                 {item.label}
@@ -62,16 +59,17 @@ export function AppLayout({ user, children }: AppLayoutProps) {
             );
           })}
         </nav>
-        <div className="p-4 border-t border-slate-700">
+
+        <div className="p-4 border-t border-white/10">
           <div className="flex items-center gap-3 px-2 py-2">
-            <div className="w-9 h-9 rounded-full bg-mahogany flex items-center justify-center text-vanilla">
+            <div className="w-9 h-9 rounded-full bg-cold-brew flex items-center justify-center text-vanilla">
               <User className="w-4 h-4" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">
+              <p className="text-sm font-medium text-vanilla truncate">
                 {user?.full_name ?? "—"}
               </p>
-              <p className="text-xs text-slate-400 truncate">
+              <p className="text-xs text-stone-400 truncate">
                 {user ? (roleLabels[user.role] ?? user.role) : "—"}
               </p>
             </div>
@@ -79,7 +77,7 @@ export function AppLayout({ user, children }: AppLayoutProps) {
           <button
             type="button"
             onClick={handleLogout}
-            className="w-full mt-2 flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+            className="w-full mt-2 flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-stone-300 hover:bg-white/10 hover:text-vanilla transition-colors"
           >
             <LogOut className="w-4 h-4" />
             Logout
@@ -87,9 +85,10 @@ export function AppLayout({ user, children }: AppLayoutProps) {
         </div>
       </aside>
 
+      {/* ── Main content ── */}
       <div className="flex-1 pl-[240px] flex flex-col min-h-screen">
-        <header className="sticky top-0 z-10 h-14 border-b border-slate-200 bg-white flex items-center justify-end px-6">
-          <div className="w-9 h-9 rounded-full bg-mahogany flex items-center justify-center text-vanilla">
+        <header className="sticky top-0 z-10 h-14 border-b border-sand bg-vanilla/80 backdrop-blur flex items-center justify-end px-6">
+          <div className="w-9 h-9 rounded-full bg-cold-brew flex items-center justify-center text-vanilla">
             <User className="w-4 h-4" />
           </div>
         </header>

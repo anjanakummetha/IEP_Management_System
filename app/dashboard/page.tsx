@@ -5,6 +5,7 @@ import { RiskBadge } from "../components/ui/RiskBadge";
 import { getRiskLevel } from "@/lib/riskUtils";
 import { AlertTriangle, CheckCircle, ShieldAlert } from "lucide-react";
 
+
 interface StudentRow {
   id: string;
   name: string;
@@ -82,7 +83,7 @@ export default async function DashboardPage() {
         {/* Compliance Risk Monitor */}
         <Card className="overflow-hidden p-0">
           <div className="px-6 py-4 border-b border-slate-100 flex items-center gap-2">
-            <ShieldAlert size={18} className="text-red-500" />
+            <ShieldAlert size={18} className="text-cold-brew" />
             <div>
               <h2 className="text-sm font-semibold text-slate-800">Compliance Risk Monitor</h2>
               <p className="text-xs text-slate-500 mt-0.5">
@@ -109,10 +110,10 @@ export default async function DashboardPage() {
                   return (
                     <tr key={s.id} className="hover:bg-slate-50/50 align-top">
                       <td className="px-6 py-4">
-                        <Link href={`/students/${s.id}`} className="text-sm font-medium text-slate-800 hover:text-blue-600">
+                        <Link href={`/students/${s.id}`}             className="text-sm font-medium text-espresso-noir hover:text-cold-brew">
                           {s.name}
                         </Link>
-                        <p className="text-xs text-slate-500 mt-0.5">Grade {s.grade} · {s.disability_category}</p>
+                        <p className="text-xs text-stone-500 mt-0.5">Grade {s.grade} · {s.disability_category}</p>
                       </td>
                       <td className="px-6 py-4">
                         <RiskBadge level={level} />
@@ -189,7 +190,7 @@ export default async function DashboardPage() {
               return (
                 <li key={s.id} className="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-4">
                   <div>
-                    <Link href={`/students/${s.id}`} className="text-sm font-medium text-slate-800 hover:text-blue-600">
+                    <Link href={`/students/${s.id}`} className="text-sm font-medium text-espresso-noir hover:text-cold-brew">
                       {s.name}
                     </Link>
                     <p className="text-xs text-slate-500 mt-0.5">

@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        vanilla: "#F1EADA",
-        tobacco: "#B59E7D",
-        mountain: "#AAA396",
-        mahogany: "#584738",
-        sand: "#CEC1A8",
+        toasty:         "#D9A883",
+        "espresso-foam":"#A98062",
+        mocha:          "#956643",
+        "cold-brew":    "#623528",
+        "espresso-noir":"#343434",
+        vanilla:        "#FAF6F0",
+        // keep sand for subtle fills
+        sand:           "#EDE4D8",
       },
     },
   },

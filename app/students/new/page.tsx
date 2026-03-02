@@ -128,19 +128,19 @@ export default function AddStudentPage() {
     }
   }
 
-  const labelCls = "block text-xs font-semibold text-slate-500 mb-1";
-  const inputCls = "w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400";
+  const labelCls = "block text-xs font-semibold text-stone-500 mb-1";
+  const inputCls = "w-full border border-sand rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-espresso-foam";
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
-        <button onClick={() => router.push("/students")} className="p-2 rounded-lg hover:bg-slate-100 text-slate-500">
+        <button onClick={() => router.push("/students")} className="p-2 rounded-lg hover:bg-slate-100 text-stone-500">
           <ArrowLeft size={20} />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">Add New Student</h1>
-          <p className="text-sm text-slate-500 mt-0.5">Upload an IEP PDF — AI will extract student information automatically</p>
+          <h1 className="text-2xl font-bold text-espresso-noir">Add New Student</h1>
+          <p className="text-sm text-stone-500 mt-0.5">Upload an IEP PDF — AI will extract student information automatically</p>
         </div>
       </div>
 
@@ -152,8 +152,8 @@ export default function AddStudentPage() {
         >
           <Upload size={48} className="text-slate-400" />
           <div className="text-center">
-            <p className="text-lg font-semibold text-slate-700">Upload IEP PDF</p>
-            <p className="text-sm text-slate-500 mt-1">Click to browse or drag and drop</p>
+            <p className="text-lg font-semibold text-stone-700">Upload IEP PDF</p>
+            <p className="text-sm text-stone-500 mt-1">Click to browse or drag and drop</p>
           </div>
           <input ref={fileRef} type="file" accept="application/pdf" className="hidden" onChange={handleUpload} />
         </div>
@@ -178,8 +178,8 @@ export default function AddStudentPage() {
           )}
 
           {/* Student Info */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6">
-            <h2 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
+          <section className="bg-white rounded-2xl border border-sand p-6">
+            <h2 className="font-semibold text-espresso-noir mb-4 flex items-center gap-2">
               <FileText size={18} className="text-blue-500" /> Student Information
             </h2>
             <div className="grid grid-cols-2 gap-4">
@@ -207,8 +207,8 @@ export default function AddStudentPage() {
           </section>
 
           {/* IEP Dates */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6">
-            <h2 className="font-semibold text-slate-800 mb-4">IEP Dates</h2>
+          <section className="bg-white rounded-2xl border border-sand p-6">
+            <h2 className="font-semibold text-espresso-noir mb-4">IEP Dates</h2>
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: "IEP Start Date", val: startDate, set: setStartDate },
@@ -225,10 +225,10 @@ export default function AddStudentPage() {
           </section>
 
           {/* Goals */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6">
+          <section className="bg-white rounded-2xl border border-sand p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-semibold text-slate-800">Goals & Objectives ({goals.length})</h2>
-              <button onClick={addGoal} className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700">
+              <h2 className="font-semibold text-espresso-noir">Goals & Objectives ({goals.length})</h2>
+              <button onClick={addGoal} className="flex items-center gap-1 text-sm text-cold-brew hover:text-blue-700">
                 <PlusCircle size={15} /> Add Goal
               </button>
             </div>
@@ -237,7 +237,7 @@ export default function AddStudentPage() {
                 <p className="text-sm text-slate-400 italic">No goals extracted. Add them manually.</p>
               )}
               {goals.map((g, i) => (
-                <div key={i} className="border border-slate-100 rounded-xl p-4 bg-slate-50 space-y-3">
+                <div key={i} className="border border-slate-100 rounded-xl p-4 bg-vanilla space-y-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
                       <label className={labelCls}>Goal Description</label>
@@ -271,10 +271,10 @@ export default function AddStudentPage() {
           </section>
 
           {/* Services */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6">
+          <section className="bg-white rounded-2xl border border-sand p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-semibold text-slate-800">Services & Accommodations ({services.length})</h2>
-              <button onClick={addService} className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700">
+              <h2 className="font-semibold text-espresso-noir">Services & Accommodations ({services.length})</h2>
+              <button onClick={addService} className="flex items-center gap-1 text-sm text-cold-brew hover:text-blue-700">
                 <PlusCircle size={15} /> Add Service
               </button>
             </div>
@@ -283,7 +283,7 @@ export default function AddStudentPage() {
                 <p className="text-sm text-slate-400 italic">No services extracted. Add them manually.</p>
               )}
               {services.map((s, i) => (
-                <div key={i} className="border border-slate-100 rounded-xl p-4 bg-slate-50 space-y-3">
+                <div key={i} className="border border-slate-100 rounded-xl p-4 bg-vanilla space-y-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
                       <label className={labelCls}>Service / Accommodation Type</label>
@@ -340,13 +340,13 @@ export default function AddStudentPage() {
           <div className="flex gap-3 justify-end pb-8">
             <button
               onClick={() => { setPhase("idle"); if (fileRef.current) fileRef.current.value = ""; }}
-              className="px-5 py-2.5 border border-slate-200 rounded-xl text-slate-600 hover:bg-slate-50 text-sm font-medium"
+              className="px-5 py-2.5 border border-sand rounded-xl text-slate-600 hover:bg-vanilla text-sm font-medium"
             >
               Re-upload PDF
             </button>
             <button
               onClick={handleCreate}
-              className="px-6 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-semibold shadow-sm"
+              className="px-6 py-2.5 bg-cold-brew text-vanilla rounded-xl hover:opacity-90 text-sm font-semibold shadow-sm"
             >
               Create Student
             </button>
@@ -369,19 +369,19 @@ export default function AddStudentPage() {
             <CheckCircle size={48} className="text-green-600" />
           </div>
           <div className="text-center">
-            <p className="text-xl font-bold text-slate-800">Student Created!</p>
-            <p className="text-slate-500 text-sm mt-1">{studentName} has been added to the system</p>
+            <p className="text-xl font-bold text-espresso-noir">Student Created!</p>
+            <p className="text-stone-500 text-sm mt-1">{studentName} has been added to the system</p>
           </div>
           <div className="flex gap-3">
             <button
               onClick={() => router.push(`/students/${newStudentId}`)}
-              className="px-6 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-semibold shadow-sm"
+              className="px-6 py-2.5 bg-cold-brew text-vanilla rounded-xl hover:opacity-90 text-sm font-semibold shadow-sm"
             >
               View Student Profile
             </button>
             <button
               onClick={() => router.push("/students")}
-              className="px-5 py-2.5 border border-slate-200 rounded-xl text-slate-600 hover:bg-slate-50 text-sm font-medium"
+              className="px-5 py-2.5 border border-sand rounded-xl text-slate-600 hover:bg-vanilla text-sm font-medium"
             >
               Back to Students
             </button>
